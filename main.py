@@ -25,12 +25,28 @@ def preprocess_text(text: str) -> List[List[str]]:
 
     # Remove stopwords and non-alphabetic tokens
     stop_words = set(stopwords.words('english'))
-    filtered_words = [[word.lower() for word in sentence if word.isalpha() and word.lower() not in stop_words] for sentence in words]
+    filtered_words = [[word.lower() for word in sentence if word.isalpha() and word.lower() not in stop_words] for
+                      sentence in words]
 
     return filtered_words
 
 def label_characters(text: List[List[str]]) -> Set[str]:
     #????HOW DO I DIVIDE THIS????
+
+    """  labeled_characters = set()
+
+    # Load spaCy English model
+    nlp = spacy.load("en_core_web_sm")
+
+    for sentence in text:
+        # Join the words into a sentence and process it with spaCy
+        sentence_text = ' '.join(sentence)
+        doc = nlp(sentence_text)
+
+        # Extract named entities (persons) and add them to the set of labeled characters
+        labeled_characters.update(ent.text.lower() for ent in doc.ents if ent.label_ == 'PERSON')
+
+    return labeled_characters"""
 
     labeled_characters = set(word for sentence in text for word in sentence if word.istitle())#ONLY SENTENCES
 
