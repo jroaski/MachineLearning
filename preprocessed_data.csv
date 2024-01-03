@@ -1,0 +1,3 @@
+chapter_text,processed_text,labeled_characters
+Chapter 1 text goes here.,"[['chapter', 'text', 'goes']]",set()
+Chapter 2 text goes here.,"[['chapter', 'text', 'goes']]",set()
